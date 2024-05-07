@@ -70,9 +70,15 @@ const useCart = () => {
     updateLocalStorageCart(newCart);
   };
 
+  const clearCart = () => {
+    setCart([]);
+    updateLocalStorageCart([]);
+  };
+
   return {
     cart,
     addToCart,
+    clearCart,
     removeFromCart,
     incrementQuantity,
     decrementQuantity,

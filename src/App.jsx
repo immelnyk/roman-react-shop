@@ -7,6 +7,7 @@ import SingleProduct from "./components/SingleProduct";
 import { createContext, useEffect, useState } from "react";
 import Cart from "./components/Cart";
 import { Toaster } from "react-hot-toast";
+import Checkout from "./components/Checkout";
 
 export const Context = createContext();
 export const CartContext = createContext();
@@ -68,6 +69,7 @@ function App() {
                 <Route path="/" element={<Main />} />
                 <Route path="/product/:id" element={<SingleProduct />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
               </Routes>
             </div>
             <Footer />

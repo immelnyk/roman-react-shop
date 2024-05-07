@@ -66,3 +66,21 @@
   border-radius: 8px;
   line-height: 1;
 }
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-total {
+  font-size: 1.5rem;
+}
+
+.cart-checkout {
+  font-size: inherit;
+  background-color: #2e2e2e;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+}

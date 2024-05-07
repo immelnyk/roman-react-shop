@@ -1,5 +1,6 @@
 import "./Cart.css";
 import useCart from "../hooks/useCart";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity } =
@@ -35,10 +36,15 @@ const Cart = () => {
       </div>
       <div className="cart-total">
         {cart.length > 0 ? (
-          <p>
-            Totals: $
-            {cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
-          </p>
+          <>
+            <p>
+              Totals: $
+              {cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
+            </p>
+            <Link to="/checkout" className="cart-checkout">
+              Checkout
+            </Link>
+          </>
         ) : (
           <p>Cart is empty</p>
         )}
