@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+.container {
+  /* max-width: 90vw;
+  margin: 0 auto; */
+  display: grid;
+  grid-template-columns: 5vw [container-start] 1fr [container-end] 5vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container > * {
+  grid-area: container;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main {
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-x: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
+html,
+body {
+  overflow-x: hidden;
+}
+
+.app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.page-loader {
+  position: fixed;
+  background-color: #fcfcfc;
+  min-height: 100svh;
+  inset: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.page-loader .loader {
+  width: 80px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  --b: 8px;
+  margin: 0 auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(#0000 10%, #2e2e2e) content-box;
+  -webkit-mask: repeating-conic-gradient(
+      #0000 0deg,
+      #000 1deg 20deg,
+      #0000 21deg 36deg
+    ),
+    radial-gradient(
+      farthest-side,
+      #0000 calc(100% - var(--b) - 1px),
+      #000 calc(100% - var(--b))
+    );
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation: l4 1s infinite steps(10);
+}
+@keyframes l4 {
   to {
-    transform: rotate(360deg);
+    transform: rotate(1turn);
   }
 }
