@@ -13,6 +13,7 @@
 .card-img {
   display: flex;
   justify-content: center;
+  user-select: none;
 }
 
 .cart-favorite {

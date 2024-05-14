@@ -26,7 +26,7 @@ const Products = mongoose.model("products", {
   title: String,
   description: String,
   color: String,
-  imgUrl: String,
+  imgUrl: Array,
   price: Number,
   category: String,
   characteristics: {
@@ -153,3 +153,6 @@ app.listen(5500, async () => {
   await db();
   console.log("Listening on port 5500");
 });
+
+imgUrl: "tetetetete";
+imgUrl: ["tetetetete", "dghfghfd"];

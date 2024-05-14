@@ -24,7 +24,7 @@ const Cart = () => {
             </div>
             <div className="cart-item-info">
               <h4>{item.title}</h4>
-              <p>${item.price}</p>
+              <p>₴{item.price}</p>
               <div className="cart-item-actions">
                 <button onClick={() => decrementQuantity(item._id)}>-</button>{" "}
                 <span>&times;{item?.quantity}</span>
@@ -38,7 +38,7 @@ const Cart = () => {
         {cart.length > 0 ? (
           <>
             <p>
-              Totals: $
+              Totals: ₴
               {cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
             </p>
             <Link to="/checkout" className="cart-checkout">

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
 import toast from "react-hot-toast";
 import useCart from "../hooks/useCart";
+import { Carousel } from "react-responsive-carousel";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -47,12 +48,23 @@ const SingleProduct = () => {
   return (
     <div className="single-product">
       <div className="single-product-layout">
-        <div className="single-product-image">
-          <img src={imgUrl} alt={title} />
-        </div>
+        <Carousel
+          swipeable={true}
+          emulateTouch={true}
+          showStatus={false}
+          showArrows={true}
+          showIndicators={false}
+        >
+          {imgUrl.map((url, index) => (
+            <div className="single-product-image">
+              <img src={url || "https://placehold.co/160"} alt={title} />
+            </div>
+          ))}
+        </Carousel>
+
         <div className="single-product-content">
           <h2 className="single-product-title">{title}</h2>
-          <p className="single-product-price">${price}</p>
+          <p className="single-product-price">₴{price}</p>
           <div className="single-product-colors">
             {colorsArr.map((color) => (
               <p

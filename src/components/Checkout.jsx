@@ -70,7 +70,7 @@ const Checkout = () => {
                 </div>
                 <div className="checkout-item-info">
                   <p>{item.title}</p>
-                  <p>${item.price}</p>
+                  <p>₴{item.price}</p>
                 </div>
               </li>
             ))}

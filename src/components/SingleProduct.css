@@ -6,7 +6,7 @@
 
 .single-product-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 2rem;
 }
 
@@ -90,7 +90,7 @@
   background-color: #dbdbdb;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 540px) {
   .single-product-layout {
     grid-template-columns: 1fr;
   }

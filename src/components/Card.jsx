@@ -3,17 +3,21 @@ import { favIcon } from "../assets";
 import "./Card.css";
 import toast from "react-hot-toast";
 import useCart from "../hooks/useCart";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Card = ({ product }) => {
   const { _id: id, title, price, imgUrl } = product;
 
   const { addToCart } = useCart();
 
+  console.log(imgUrl);
+
   const navigate = useNavigate();
   return (
     <div
       onClick={() => {
-        navigate(`/product/${id}`);
+        // navigate(`/product/${id}`);
       }}
       className="card"
     >
@@ -23,11 +27,24 @@ const Card = ({ product }) => {
             <img src={favIcon} alt="" />
           </button>
         </div>
-        <div className="card-img">
-          <img src={imgUrl || "https://placehold.co/160"} alt="card-img" />
-        </div>
+        <Carousel
+          swipeable={true}
+          emulateTouch={true}
+          showStatus={false}
+          showThumbs={false}
+          showArrows={true}
+          showIndicators={false}
+          onClickItem={() => navigate(`/product/${id}`)}
+        >
+          {imgUrl.map((url, index) => (
+            <div key={index} className="card-img">
+              <img src={url || "https://placehold.co/160"} alt="" />
+            </div>
+          ))}
+        </Carousel>
+
         <p className="card-title">{title}</p>
-        <p className="card-price">${price}</p>
+        <p className="card-price">₴{price}</p>
       </div>
       <button
         onClick={(e) => {
